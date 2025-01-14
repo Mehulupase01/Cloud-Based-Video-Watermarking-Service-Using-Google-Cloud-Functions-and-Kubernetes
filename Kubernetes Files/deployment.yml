@@ -1,0 +1,22 @@
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: scaletheotherside@gmail.com
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
+
+
+// https://freedomain.one
+
+// Username: Noshamedevil
+
+// Password: Nimish@2455
+
+// http://alphamatrix.linkpc.net/

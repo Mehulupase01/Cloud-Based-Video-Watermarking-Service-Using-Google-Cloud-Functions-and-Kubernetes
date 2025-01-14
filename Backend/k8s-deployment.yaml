@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: watermarking-service-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: watermarking-service-backend
+  template:
+    metadata:
+      labels:
+        app: watermarking-service-backend
+    spec:
+      containers:
+      - name: watermarking-service-backend
+        image: gcr.io/ass2vid/watermarking-service-backend
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: watermarking-service-backend
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: watermarking-service-backend
+
