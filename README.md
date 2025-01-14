@@ -1,0 +1,2 @@
+# Cloud-Based Video Watermarking Service Using Google Cloud Functions and Kubernetes
+ This project implements a cloud-based video watermarking service utilizing Google Cloud Functions and Google Kubernetes Engine (GKE). It compares serverless and containerized architectures for video processing, analyzing performance, cost-efficiency, and scalability to find the optimal solution for watermarking tasks
