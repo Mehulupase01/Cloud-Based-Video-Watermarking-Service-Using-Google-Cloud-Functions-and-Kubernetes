@@ -48,60 +48,71 @@ The main objective is to perform a **comparison of performance** and **cost-effi
 
 1. **Install Firebase CLI**:
    ```bash
+
    npm install -g firebase-tools
+
   ```
 
 2. **Login to Firebase**:
    ```bash
+
    firebase login
+
   ```
 
 3. **Deploy the frontend: Build the frontend and deploy it to Firebase**:
    ```bash
+
    npm run build
    firebase deploy
 
   ```
+
 ### Backend Deployment
+
 ## Using Google Cloud Functions (Serverless)
 
-1. **Authenticate with Google Cloud SDK**:
-   ```bash
-   gcloud auth login
+  1. **Authenticate with Google Cloud SDK**:
+    ```bash
 
+    gcloud auth login
 
-  ```
+    ```
 
-2. **Deploy Cloud Function**:
+  2. **Deploy Cloud Function**:
 
-   ```bash
-   gcloud functions deploy watermark-service --runtime nodejs18 --trigger-http
+    ```bash
 
-  ```
+    gcloud functions deploy watermark-service --runtime nodejs18 --trigger-http
+
+    ```
 
 ## Using Google Kubernetes Engine (Containerized)
 
-1. **Build Docker Image**:
-   ```bash
-   docker build -t watermark-service 
+  1. **Build Docker Image**:
+    ```bash
 
-  ```
+    docker build -t watermark-service 
 
-2. **Push Docker Image to Google Container Registry**:
+    ```
 
-   ```bash
-   docker tag watermark-service gcr.io/[PROJECT-ID]/watermark-service:latest
-   docker push gcr.io/[PROJECT-ID]/watermark-service:latest
+  2. **Push Docker Image to Google Container Registry**:
 
-  ```
+    ```bash
 
-2. **Deploy to GKE: Apply the deployment.yaml and ingress.yaml configuration files**:
+    docker tag watermark-service gcr.io/[PROJECT-ID]/watermark-service:latest
+    docker push gcr.io/[PROJECT-ID]/watermark-service:latest
 
-   ```bash
-    kubectl apply -f deployment.yaml
-    kubectl apply -f ingress.yaml
+    ```
 
-  ```
+  3. **Deploy to GKE: Apply the deployment.yaml and ingress.yaml configuration files**:
+
+    ```bash
+
+      kubectl apply -f deployment.yaml
+      kubectl apply -f ingress.yaml
+
+    ```
 
 ### Configuring DNS
 
