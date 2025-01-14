@@ -42,77 +42,62 @@ The main objective is to perform a **comparison of performance** and **cost-effi
 - Google Cloud Storage
 - Google Pub/Sub
 
+Here's the fixed indentation and formatting of your markdown code:
+
+
 ## Deployment
 
 ### Frontend Deployment (Firebase Hosting)
 
 1. **Install Firebase CLI**:
    ```bash
-
    npm install -g firebase-tools
-
-  ```
+   ```
 
 2. **Login to Firebase**:
    ```bash
-
-    firebase login
-
-  ```
+   firebase login
+   ```
 
 3. **Deploy the frontend: Build the frontend and deploy it to Firebase**:
    ```bash
-
    npm run build
    firebase deploy
-
-  ```
+   ```
 
 ## Backend Deployment
 
 ### Using Google Cloud Functions (Serverless)
 
-  1. **Authenticate with Google Cloud SDK**:
-     ```bash
+1. **Authenticate with Google Cloud SDK**:
+   ```bash
+   gcloud auth login
+   ```
 
-      gcloud auth login
-
-    ```
-
-  2. **Deploy Cloud Function**:
-
-     ```bash
-
-      gcloud functions deploy watermark-service --runtime nodejs18 --trigger-http
-
-    ```
+2. **Deploy Cloud Function**:
+   ```bash
+   gcloud functions deploy watermark-service --runtime nodejs18 --trigger-http
+   ```
 
 ### Using Google Kubernetes Engine (Containerized)
 
-  1. **Build Docker Image**:
-     ```bash
-
-      docker build -t watermark-service 
-
-    ```
-
-  2. **Push Docker Image to Google Container Registry**:
-
-     ```bash
-
-      docker tag watermark-service gcr.io/[PROJECT-ID]/watermark-service:latest
-      docker push gcr.io/[PROJECT-ID]/watermark-service:latest
-
-    ```
-
-  3. **Deploy to GKE: Apply the deployment.yaml and ingress.yaml configuration files**:
-
-     ```bash
-
-        kubectl apply -f deployment.yaml
-        kubectl apply -f ingress.yaml
-
+1. **Build Docker Image**:
+   ```bash
+   docker build -t watermark-service
    ```
+
+2. **Push Docker Image to Google Container Registry**:
+   ```bash
+   docker tag watermark-service gcr.io/[PROJECT-ID]/watermark-service:latest
+   docker push gcr.io/[PROJECT-ID]/watermark-service:latest
+   ```
+
+3. **Deploy to GKE: Apply the deployment.yaml and ingress.yaml configuration files**:
+   ```bash
+   kubectl apply -f deployment.yaml
+   kubectl apply -f ingress.yaml
+   ```
+
 
 
 ## Configuring DNS
