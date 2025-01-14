@@ -56,7 +56,7 @@ The main objective is to perform a **comparison of performance** and **cost-effi
 2. **Login to Firebase**:
    ```bash
 
-   firebase login
+    firebase login
 
   ```
 
@@ -68,53 +68,54 @@ The main objective is to perform a **comparison of performance** and **cost-effi
 
   ```
 
-### Backend Deployment
+## Backend Deployment
 
-## Using Google Cloud Functions (Serverless)
+### Using Google Cloud Functions (Serverless)
 
   1. **Authenticate with Google Cloud SDK**:
-      ```bash
+     ```bash
 
       gcloud auth login
 
-      ```
+    ```
 
   2. **Deploy Cloud Function**:
 
-      ```bash
+     ```bash
 
       gcloud functions deploy watermark-service --runtime nodejs18 --trigger-http
 
-      ```
+    ```
 
-## Using Google Kubernetes Engine (Containerized)
+### Using Google Kubernetes Engine (Containerized)
 
   1. **Build Docker Image**:
-      ```bash
+     ```bash
 
       docker build -t watermark-service 
 
-      ```
+    ```
 
   2. **Push Docker Image to Google Container Registry**:
 
-      ```bash
+     ```bash
 
       docker tag watermark-service gcr.io/[PROJECT-ID]/watermark-service:latest
       docker push gcr.io/[PROJECT-ID]/watermark-service:latest
 
-      ```
+    ```
 
   3. **Deploy to GKE: Apply the deployment.yaml and ingress.yaml configuration files**:
 
-      ```bash
+     ```bash
 
         kubectl apply -f deployment.yaml
         kubectl apply -f ingress.yaml
 
-      ```
+   ```
 
-### Configuring DNS
+
+## Configuring DNS
 
 To configure the domain (e.g., `alphamatrix.linkpc.net`) to point to the IP address of your GKE ingress, create an **A record** with your DNS provider.
 
